@@ -1,0 +1,9 @@
+{
+	"name": "adf-jmws",
+	"properties": {
+		"globalConfigurations": {
+			"PipelineBillingEnabled": "true"
+		}
+	},
+	"location": "uksouth"
+}
