@@ -1,0 +1,63 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-jmws"
+		},
+		"sqldb_jmws_main_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'sqldb_jmws_main'"
+		},
+		"AzureSqlDatabaseMVEP_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/4e599a5a-f630-4621-8cec-bc3b2cd7c3f4/resourceGroups/rg-jmws-main/providers/Microsoft.Sql/servers/jmws-main"
+		},
+		"AzureSqlDatabaseMVEP_properties_groupId": {
+			"type": "string",
+			"defaultValue": "sqlServer"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-jmws_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"sqldb_jmws_main_connectionString": {
+						"value": "[parameters('sqldb_jmws_main_connectionString')]"
+					},
+					"AzureSqlDatabaseMVEP_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureSqlDatabaseMVEP_properties_privateLinkResourceId')]"
+					},
+					"AzureSqlDatabaseMVEP_properties_groupId": {
+						"value": "[parameters('AzureSqlDatabaseMVEP_properties_groupId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

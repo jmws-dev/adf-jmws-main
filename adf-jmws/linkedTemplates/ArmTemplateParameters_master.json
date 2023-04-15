@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-jmws"
+		},
+		"sqldb_jmws_main_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabaseMVEP_properties_privateLinkResourceId": {
+			"value": "/subscriptions/4e599a5a-f630-4621-8cec-bc3b2cd7c3f4/resourceGroups/rg-jmws-main/providers/Microsoft.Sql/servers/jmws-main"
+		},
+		"AzureSqlDatabaseMVEP_properties_groupId": {
+			"value": "sqlServer"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
