@@ -1,0 +1,14 @@
+{
+	"name": "AzureDataLakeStorageJMWS",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://storage2jmws.dfs.core.windows.net/"
+		},
+		"connectVia": {
+			"referenceName": "ir-mvn-jmws",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
