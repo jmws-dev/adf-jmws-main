@@ -1,0 +1,7 @@
+{
+	"name": "AzureSqlDatabaseMVEP",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/4e599a5a-f630-4621-8cec-bc3b2cd7c3f4/resourceGroups/rg-jmws-main/providers/Microsoft.Sql/servers/jmws-main",
+		"groupId": "sqlServer"
+	}
+}
