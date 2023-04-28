@@ -1,0 +1,88 @@
+{
+	"name": "OlympicsSummer_InputSQLdb",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "OlympicsCSV",
+						"type": "DatasetReference"
+					},
+					"name": "SrcOlympicsCSV"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "sqldbTable",
+						"type": "DatasetReference"
+					},
+					"name": "TrgOlympics"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derConvertYearInt"
+				},
+				{
+					"name": "selReorderCols"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Year as string,",
+				"          City as string,",
+				"          Sport as string,",
+				"          Discipline as string,",
+				"          Athlete as string,",
+				"          Country as string,",
+				"          Gender as string,",
+				"          Event as string,",
+				"          Medal as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> SrcOlympicsCSV",
+				"SrcOlympicsCSV derive(Year = toInteger(Year),",
+				"          Games = \"Summer\") ~> derConvertYearInt",
+				"derConvertYearInt select(mapColumn(",
+				"          Games,",
+				"          Year,",
+				"          City,",
+				"          Sport,",
+				"          Discipline,",
+				"          Athlete,",
+				"          Country,",
+				"          Gender,",
+				"          Event,",
+				"          Medal",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selReorderCols",
+				"selReorderCols sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Games as string,",
+				"          Year as integer,",
+				"          City as string,",
+				"          Sport as string,",
+				"          Discipline as string,",
+				"          Athlete as string,",
+				"          Country as string,",
+				"          Gender as string,",
+				"          Event as string,",
+				"          Medal as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> TrgOlympics"
+			]
+		}
+	}
+}

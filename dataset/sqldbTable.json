@@ -1,0 +1,58 @@
+{
+	"name": "sqldbTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sqldb_jmws_main",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Games",
+				"type": "varchar"
+			},
+			{
+				"name": "Year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "City",
+				"type": "varchar"
+			},
+			{
+				"name": "Sport",
+				"type": "varchar"
+			},
+			{
+				"name": "Discipline",
+				"type": "varchar"
+			},
+			{
+				"name": "Athlete",
+				"type": "varchar"
+			},
+			{
+				"name": "Country",
+				"type": "varchar"
+			},
+			{
+				"name": "Gender",
+				"type": "varchar"
+			},
+			{
+				"name": "Event",
+				"type": "varchar"
+			},
+			{
+				"name": "Medal",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "Info",
+			"table": "Olympics"
+		}
+	}
+}
