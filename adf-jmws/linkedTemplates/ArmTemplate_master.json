@@ -7,9 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-jmws"
 		},
-		"sqldb_jmws_main_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'sqldb_jmws_main'"
+		"AzureDataLakeStorageMPEP_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/4e599a5a-f630-4621-8cec-bc3b2cd7c3f4/resourceGroups/rg-jmws-main/providers/Microsoft.Storage/storageAccounts/storage2jmws"
+		},
+		"AzureDataLakeStorageMPEP_properties_groupId": {
+			"type": "string",
+			"defaultValue": "dfs"
 		},
 		"AzureSqlDatabaseMVEP_properties_privateLinkResourceId": {
 			"type": "string",
@@ -46,8 +50,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"sqldb_jmws_main_connectionString": {
-						"value": "[parameters('sqldb_jmws_main_connectionString')]"
+					"AzureDataLakeStorageMPEP_properties_privateLinkResourceId": {
+						"value": "[parameters('AzureDataLakeStorageMPEP_properties_privateLinkResourceId')]"
+					},
+					"AzureDataLakeStorageMPEP_properties_groupId": {
+						"value": "[parameters('AzureDataLakeStorageMPEP_properties_groupId')]"
 					},
 					"AzureSqlDatabaseMVEP_properties_privateLinkResourceId": {
 						"value": "[parameters('AzureSqlDatabaseMVEP_properties_privateLinkResourceId')]"

@@ -5,8 +5,11 @@
 		"factoryName": {
 			"value": "adf-jmws"
 		},
-		"sqldb_jmws_main_connectionString": {
-			"value": ""
+		"AzureDataLakeStorageMPEP_properties_privateLinkResourceId": {
+			"value": "/subscriptions/4e599a5a-f630-4621-8cec-bc3b2cd7c3f4/resourceGroups/rg-jmws-main/providers/Microsoft.Storage/storageAccounts/storage2jmws"
+		},
+		"AzureDataLakeStorageMPEP_properties_groupId": {
+			"value": "dfs"
 		},
 		"AzureSqlDatabaseMVEP_properties_privateLinkResourceId": {
 			"value": "/subscriptions/4e599a5a-f630-4621-8cec-bc3b2cd7c3f4/resourceGroups/rg-jmws-main/providers/Microsoft.Sql/servers/jmws-main"
