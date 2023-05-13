@@ -1,0 +1,16 @@
+{
+	"name": "AzureBlobStorageVidaSW",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=storagedl2vida;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDkwQjU0MTMwLUU2MTctNEYzMi1BQTc5LTVCMEY3RjUzMUQyOF8xNjFjZGY5MS0wMjViLTQ0ODYtYTQ1ZC01ZGMwMDBhOWM1YzQiDQp9"
+		},
+		"connectVia": {
+			"referenceName": "ir-adf-vida",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
